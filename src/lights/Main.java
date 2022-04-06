@@ -14,3 +14,4 @@ public class Main {
 	}
 	
 }
+// 1. RunningHolidayLights(урт) хараахан хэрэгжээгүй байна! гэсэн алдаа.
