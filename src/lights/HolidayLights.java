@@ -1,7 +1,7 @@
 package lights;
 
 import java.util.List;
-
+import java.util.Collections;
 /**
  * Represents a sequence of lights that periodically changes
  * appearence.
@@ -9,10 +9,8 @@ import java.util.List;
 
 public interface HolidayLights {
 
-	/**
-	 * Appearence of lights at next time slice.
-	 * @return appearence of lights at next time slice.
-	 */
-	public List<Light> next();
+	//public List<Light> next();
 	
+	public  <C> C next();  
+	public int getLength();
 }
