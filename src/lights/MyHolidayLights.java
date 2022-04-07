@@ -19,7 +19,7 @@ public class MyHolidayLights implements HolidayLights {
 	public void makeListOfLights() {
 		for (int i = 0; i < urt; i++) {
 			ColoredLight light;
-			Color f= new Color(urt,urt+20,urt+40);
+			Color f= new Color(urt,urt+10,urt+60);
 			list.add(light = new ColoredLight(f));
 		}
 	}
