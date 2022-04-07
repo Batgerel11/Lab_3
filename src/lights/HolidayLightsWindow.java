@@ -11,7 +11,6 @@ import java.awt.Stroke;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,11 +25,12 @@ public class HolidayLightsWindow extends JFrame {
 	
 	private static final long serialVersionUID = -722257469624438083L;
 	private HolidayLights hl;
-	private static final int millsPerFrame = 100;
+	private static final int millsPerFrame = 300; //gereliin asaah hurd
 	
 	public HolidayLightsWindow(HolidayLights hl) {
+		
 		// Sets up the title bar
-		super("Lab 0: Holiday Lights");
+		super("Lab 3: асаж байгаа гэрэлийг хар");
 		
 		this.hl = hl;
 		this.setup();

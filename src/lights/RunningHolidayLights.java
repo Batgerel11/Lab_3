@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class RunningHolidayLights implements HolidayLights {
 	
 	
-	//урт зарлав.
+	//зарлав.
 	public int urt;
 	
 	//create list
