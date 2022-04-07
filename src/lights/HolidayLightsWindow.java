@@ -25,7 +25,7 @@ public class HolidayLightsWindow extends JFrame {
 	
 	private static final long serialVersionUID = -722257469624438083L;
 	private HolidayLights hl;
-	private static final int millsPerFrame = 300; //gereliin asaah hurd
+	private static final int millsPerFrame = 150; //gereliin asaah hurd
 	
 	public HolidayLightsWindow(HolidayLights hl) {
 		
@@ -88,7 +88,7 @@ public class HolidayLightsWindow extends JFrame {
 			for (int i = 0; i < this.lightState.size(); i++) {
 				Light l = this.lightState.get(i);
 				if (l.isOn()) {
-					g2d.setColor(Color.YELLOW);
+					g2d.setColor(Color.GREEN);
 					if (l instanceof ColoredLight) {
 						ColoredLight cl = (ColoredLight) l;
 						g2d.setColor(cl.getColor());
