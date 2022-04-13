@@ -1,45 +1,40 @@
 package lights;
 
-import java.util.List;
+import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
+
 public class RunningHolidayLights implements HolidayLights {
 	
+	int length;
+	List<Light> myLights;
+	int indexOfLight = 0;
 	
-	//зарлав.
-	public int urt;
-	
-	//create list
-	public ArrayList<Light> list = new ArrayList<Light>();
-	private int i = 0  ; 
 	/**
 	 * Creates new running holiday lights.
 	 * @param length - length of this set of lights.
 	 */
-	//функцыг зассан.
 	public RunningHolidayLights(int length) {
+		
+		this.length = length;
+		
 		// TODO
-		urt = length;
-		for (int i = 0; i < urt; i++) {
-			Light light;
-			list.add(light = new Light());
-		}		 
-		next();
-		}
+		//throw new RuntimeException("RunningHolidayLights(length) not yet implemented!");
+	}
 	
 	public List<Light> next() {
-		if (i == 0) {
-			list.get(list.size() - 1).setOn(false);
-			list.get(i).setOn(true);
-			i++;
-		} else {
-			
-			list.get(i - 1).setOn(false);
-			list.get(i).setOn(true);
-			i++;
+		// TODO
+		myLights = new ArrayList<Light>();
+		for(int i=0; i<length; i++) {
+			Light light = new Light();
+			myLights.add(light);
 		}
-		//12 гэрэл
-		i= (i==12)? 0: i;
-		return list;
+		myLights.get(indexOfLight).setOn(true);
+		indexOfLight++;
+		if(indexOfLight >= length)
+			indexOfLight = 0;
+		return myLights;
+		//throw new RuntimeException("RunningHolidayLights.next() not yet implemented!");
 	}
 	
 	/**
@@ -47,8 +42,15 @@ public class RunningHolidayLights implements HolidayLights {
 	 * @return length of this
 	 */
 	public int getLength() {
+		return length;
 		// TODO
-		return list.size();
+		//throw new RuntimeException("RunningHolidayLights.getLength() not yet implemented!");
+	}
+
+	@Override
+	public float randomIntervalSecond() {
+		// TODO Auto-generated method stub
+		return 1;
 	}
 						
 }

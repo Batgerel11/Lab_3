@@ -1,52 +1,51 @@
 package lights;
 
-import java.util.List;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyHolidayLights implements HolidayLights {
-	int urt;
-	public ArrayList<ColoredLight> list = new ArrayList<ColoredLight>(); 
-	private int i = 0;
+	
+	int length;
+	List<Light> myLights;
+	int indexOfLight = 0;
 
-	public  MyHolidayLights (int length) {
-			urt = length;
-
-			makeListOfLights();
-			next();	 
-		}
-
-	public void makeListOfLights() {
-		for (int i = 0; i < urt; i++) {
-			ColoredLight light;
-			Color f= new Color(urt,urt+10,urt+60);
-			list.add(light = new ColoredLight(f));
-		}
+	public MyHolidayLights(int length) {
+		this.length = length;
 	}
-
-	public ArrayList<ColoredLight> next() {
-
-		if (i == 0) {
-			list.get(list.size() - 1).setOn(false);
-			list.get(i).setOn(true);
-			list.get(i).randomChange();
-			i++;
-
-		} else {
-			list.get(i - 1).setOn(false);
-			list.get(i).setOn(true);
-			list.get(i).randomChange();
-			i++;
+	
+	public List<Light> next() {
+		myLights = new ArrayList<Light>();
+		for(int i=0; i<length; i++) {
+			ColoredLight coloredLight = new ColoredLight(Color.red);
+			myLights.add(coloredLight);
 		}
-		i = (i == 12) ? 0 : i;
 		
-
-		return list;
+		myLights.get(indexOfLight).setOn(true);
+		((ColoredLight) myLights.get(indexOfLight)).randomChange();
+		
+		myLights.get(length-1-indexOfLight).setOn(true);
+		((ColoredLight) myLights.get(length-1-indexOfLight)).randomChange();
+		
+		indexOfLight++;
+		if(length % 2 == 1) {
+			if(indexOfLight >= length/2+1)
+				indexOfLight = 0;
+		}
+		else {
+			if(indexOfLight >= length/2)
+				indexOfLight = 0;
+		}
+		
+		return myLights;
 	}
-
- 
+	
 	public int getLength() {
-		return list.size();
+		return length;
 	}
-
+	
+	//0.2-2 hoorond bna
+	public float randomIntervalSecond() {
+		return (float) (Math.random() * 1.8 + 0.2);
+	}				
 }

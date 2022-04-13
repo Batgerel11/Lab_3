@@ -11,11 +11,13 @@ import java.awt.Stroke;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.Timer;
+
 /**
  * JFrame that contains a display of holiday lights and an 'Exit' button.
  * @author uuu
@@ -25,12 +27,11 @@ public class HolidayLightsWindow extends JFrame {
 	
 	private static final long serialVersionUID = -722257469624438083L;
 	private HolidayLights hl;
-	private static final int millsPerFrame = 150; //gereliin asaah hurd
+	private static int millsPerFrame = 500;
 	
 	public HolidayLightsWindow(HolidayLights hl) {
-		
 		// Sets up the title bar
-		super("Lab 3: асаж байгаа гэрэлийг хар");
+		super("Lab 3: Holiday Lights");
 		
 		this.hl = hl;
 		this.setup();
@@ -66,11 +67,12 @@ public class HolidayLightsWindow extends JFrame {
 
 		private HolidayLights hl;
 		private Timer timer;
-		//private List<Light> lightState;
-		private List<ColoredLight> lightState; // Myholidaylight 
+		private List<Light> lightState;
 		
 		public LightWindow(HolidayLights hl) {
 			this.hl = hl;
+			millsPerFrame = (int) (hl.randomIntervalSecond()*500);
+
 			this.timer = new Timer(HolidayLightsWindow.millsPerFrame, new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
 					update();
@@ -88,7 +90,7 @@ public class HolidayLightsWindow extends JFrame {
 			for (int i = 0; i < this.lightState.size(); i++) {
 				Light l = this.lightState.get(i);
 				if (l.isOn()) {
-					g2d.setColor(Color.GREEN);
+					g2d.setColor(Color.YELLOW);
 					if (l instanceof ColoredLight) {
 						ColoredLight cl = (ColoredLight) l;
 						g2d.setColor(cl.getColor());
